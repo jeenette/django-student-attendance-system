@@ -73,7 +73,7 @@ DATABASES = {
     }
 }
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -125,3 +125,13 @@ AUTH_USER_MODEL = "student_management_app.CustomUser"
 
 # Registering Custom Backend "EmailBackEnd"
 AUTHENTICATION_BACKENDS = ['student_management_app.EmailBackEnd.EmailBackEnd']
+
+
+# Email backend configuration (for development/testing)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP server
+EMAIL_PORT = 587  # Common port for SMTP
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'staff@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'staff'  # Replace with your email password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
